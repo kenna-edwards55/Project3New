@@ -22,8 +22,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:id="@+id/buttons_layout"
-            android:layout_alignParentTop="@android:id/imageView"
             android:layout_alignParentBottom="true">
+            <!--            android:layout_alignParentTop="@android:id/imageView"-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -47,17 +47,17 @@
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
-                        <RadioButton android:id="@+id/radio_pirates"
+                        <RadioButton android:id="@+id/radio_easy"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Easy"
                             android:onClick="onRadioButtonClicked"/>
-                        <RadioButton android:id="@+id/radio_ninjas"
+                        <RadioButton android:id="@+id/radio_medium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Medium"
                             android:onClick="onRadioButtonClicked"/>
-                        <RadioButton android:id="@+id/radio_pirates"
+                        <RadioButton android:id="@+id/radio_hard"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Hard"
@@ -78,25 +78,26 @@
                         android:textSize="10dp" />
 
                     <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:id="@+id/radio_group_difficulty"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
-                        <RadioButton android:id="@+id/radio_pirates"
+                        <RadioButton android:id="@+id/radio_add"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Addition"
                             android:onClick="onRadioButtonClicked"/>
-                        <RadioButton android:id="@+id/radio_ninjas"
+                        <RadioButton android:id="@+id/radio_subtract"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Subtraction"
                             android:onClick="onRadioButtonClicked"/>
-                        <RadioButton android:id="@+id/radio_ninjas"
+                        <RadioButton android:id="@+id/radio_multiply"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Multiplication"
                             android:onClick="onRadioButtonClicked"/>
-                        <RadioButton android:id="@+id/radio_ninjas"
+                        <RadioButton android:id="@+id/radio_divide"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Division"
@@ -125,9 +126,9 @@
                 android:gravity="center">
 
                 <Button
-                    android:id="@+id/button1"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:id="@+id/button_minus"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="2dp"
                     android:textSize="30sp"
                     android:text="-"
@@ -135,16 +136,18 @@
 
                 <!--TODO text is the value of the var-->
                 <TextView
+                    android:id="@+id/tv_num_questions"
                     android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_height="80dp"
                     android:text = "Hi"
-                    android:textSize="40dp">
+                    android:textSize="40dp"
+                    android:textAlignment="center">
                 </TextView>
 
                 <Button
-                    android:id="@+id/button2"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:id="@+id/button_plus"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="2dp"
                     android:textSize="30sp"
                     android:text="+"
@@ -158,13 +161,14 @@
                 android:gravity="center">
 
                 <Button
-                    android:id="@+id/button0"
+                    android:id="@+id/button_start"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="2dp"
                     android:textSize="30sp"
                     android:text="START"
-                    app:cornerRadius="4dp" />
+                    app:cornerRadius="4dp"
+                    android:enabled="true"/>
 
             </LinearLayout>
 

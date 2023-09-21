@@ -11,26 +11,36 @@
         android:label="fragment_welcome"
         tools:layout="@layout/fragment_welcome" >
         <action
-            android:id="@+id/action_welcomeFragment_to_messageFragment"
+            android:id="@+id/action_welcomeFragment_to_questionFragment"
             app:destination="@id/questionFragment" />
     </fragment>
     <fragment
         android:id="@+id/questionFragment"
         android:name="com.example.project3new.QuestionFragment"
-        android:label="fragment_message"
+        android:label="fragment_question"
         tools:layout="@layout/fragment_question" >
         <action
-            android:id="@+id/action_messageFragment_to_encryptFragment"
-            app:destination="@id/correctAnswersFragment"
-            app:popUpTo="@id/welcomeFragment" />
+            android:id="@+id/action_questionFragment_to_correctAnswersFragment"
+            app:destination="@id/correctAnswersFragment">
+        </action>
+<!--        <argument-->
+<!--            android:name="difficulty"-->
+<!--            app:argType="string" />-->
+<!--        <argument-->
+<!--            android:name="operation"-->
+<!--            app:argType="string" />-->
+<!--        <argument-->
+<!--            android:name="numQuestions"-->
+<!--            app:argType="integer" />-->
+        <!--        //todo idk what popupto is-->
     </fragment>
     <fragment
         android:id="@+id/correctAnswersFragment"
         android:name="com.example.project3new.CorrectAnswersFragment"
-        android:label="fragment_encrypt"
+        android:label="fragment_correct_answers"
         tools:layout="@layout/fragment_correct_answers" >
         <argument
-            android:name="message"
-            app:argType="string" />
+            android:name="numCorrect"
+            app:argType="string"/>
     </fragment>
 </navigation>
