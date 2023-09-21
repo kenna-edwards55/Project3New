@@ -5,11 +5,16 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/welcomeFragment">
 
+<!--    <activity-->
+<!--        android:id="@+id/mainActivity"-->
+<!--        android:name="com.example.project3new.MainActivity"-->
+<!--        android:label="activity_main"-->
+<!--        tools:layout="@layout/activity_main"></activity>-->
     <fragment
         android:id="@+id/welcomeFragment"
         android:name="com.example.project3new.WelcomeFragment"
         android:label="fragment_welcome"
-        tools:layout="@layout/fragment_welcome" >
+        tools:layout="@layout/fragment_welcome">
         <action
             android:id="@+id/action_welcomeFragment_to_questionFragment"
             app:destination="@id/questionFragment" />
@@ -23,15 +28,15 @@
             android:id="@+id/action_questionFragment_to_correctAnswersFragment"
             app:destination="@id/correctAnswersFragment">
         </action>
-<!--        <argument-->
-<!--            android:name="difficulty"-->
-<!--            app:argType="string" />-->
-<!--        <argument-->
-<!--            android:name="operation"-->
-<!--            app:argType="string" />-->
-<!--        <argument-->
-<!--            android:name="numQuestions"-->
-<!--            app:argType="integer" />-->
+        <argument
+            android:name="difficulty"
+            app:argType="string" />
+        <argument
+            android:name="operation"
+            app:argType="string" />
+        <argument
+            android:name="numQuestions"
+            app:argType="integer" />
         <!--        //todo idk what popupto is-->
     </fragment>
     <fragment

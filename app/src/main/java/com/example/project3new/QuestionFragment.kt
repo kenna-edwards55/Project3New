@@ -1,10 +1,10 @@
 package com.example.project3new
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,6 +35,13 @@ class QuestionFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_question, container, false)
+
+        val difficulty = QuestionFragmentArgs.fromBundle(requireArguments()).difficulty
+        val operation = QuestionFragmentArgs.fromBundle(requireArguments()).operation
+        val numQuestions = QuestionFragmentArgs.fromBundle(requireArguments()).numQuestions
+
+
+
     }
 
     companion object {
