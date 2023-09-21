@@ -1,6 +1,7 @@
 package com.example.project3new
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,9 +40,17 @@ class WelcomeFragment : Fragment() {
         val buttonMinus = view?.findViewById<Button>(R.id.button_minus)
         val buttonPlus = view?.findViewById<Button>(R.id.button_plus)
         val buttonStart = view?.findViewById<Button>(R.id.button_start)
+        val radioButtonEasy = view?.findViewById<RadioButton>(R.id.radio_easy)
+        val radioButtonMedium = view?.findViewById<RadioButton>(R.id.radio_medium)
+        val radioButtonHard = view?.findViewById<RadioButton>(R.id.radio_hard)
+        val radioButtonAdd = view?.findViewById<RadioButton>(R.id.radio_add)
+        val radioButtonSubtract = view?.findViewById<RadioButton>(R.id.radio_subtract)
+        val radioButtonMultiply = view?.findViewById<RadioButton>(R.id.radio_multiply)
+        val radioButtonDivide = view?.findViewById<RadioButton>(R.id.radio_divide)
         val tvNumQuestions = view?.findViewById<TextView>(R.id.tv_num_questions)
 
         buttonStart?.setOnClickListener {
+            Log.d("Welcome Frag", "Start pressed")
             val action = WelcomeFragmentDirections.actionWelcomeFragmentToQuestionFragment(difficulty, operation, numQuestions)
             view.findNavController().navigate(action)
         }
@@ -52,52 +61,35 @@ class WelcomeFragment : Fragment() {
         }
 
         buttonPlus?.setOnClickListener {
-            numQuestions -= 1
+            numQuestions += 1
             tvNumQuestions?.text = numQuestions.toString()
         }
 
+        radioButtonEasy?.setOnClickListener {
+            difficulty = "easy"
+        }
+        radioButtonMedium?.setOnClickListener {
+            difficulty = "medium"
+        }
+        radioButtonHard?.setOnClickListener {
+            difficulty = "hard"
+        }
+        radioButtonAdd?.setOnClickListener {
+            operation = "add"
+        }
+        radioButtonSubtract?.setOnClickListener {
+            operation = "subtract"
+        }
+        radioButtonMultiply?.setOnClickListener {
+            operation = "multiply"
+        }
+        radioButtonDivide?.setOnClickListener {
+            operation = "divide"
+        }
 
         return view
     }
 
-     fun onRadioButtonClicked(view: View) {
-        if (view is RadioButton) {
-            // Is the button now checked?
-            val checked = view.isChecked
-
-            // Check which radio button was clicked
-            when (view.getId()) {
-                R.id.radio_easy ->
-                    if (checked) {
-                        difficulty = "easy"
-                    }
-                R.id.radio_medium ->
-                    if (checked) {
-                        difficulty = "medium"
-                    }
-                R.id.radio_hard ->
-                    if (checked) {
-                        difficulty = "hard"
-                    }
-                R.id.radio_add ->
-                    if (checked) {
-                        operation = "add"
-                    }
-                R.id.radio_subtract ->
-                    if (checked) {
-                        operation = "subtract"
-                    }
-                R.id.radio_multiply ->
-                    if (checked) {
-                        operation="multiply"
-                    }
-                R.id.radio_divide ->
-                    if (checked) {
-                        operation = "divide"
-                    }
-            }
-        }
-    }
 
     companion object {
         /**

@@ -53,21 +53,18 @@
                             android:id="@+id/radio_easy"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:onClick="onRadioButtonClicked"
                             android:text="Easy" />
 
                         <RadioButton
                             android:id="@+id/radio_medium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:onClick="onRadioButtonClicked"
                             android:text="Medium" />
 
                         <RadioButton
                             android:id="@+id/radio_hard"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:onClick="onRadioButtonClicked"
                             android:text="Hard" />
 
                     </RadioGroup>
@@ -95,28 +92,24 @@
                             android:id="@+id/radio_add"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:onClick="onRadioButtonClicked"
                             android:text="Addition" />
 
                         <RadioButton
                             android:id="@+id/radio_subtract"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:onClick="onRadioButtonClicked"
                             android:text="Subtraction" />
 
                         <RadioButton
                             android:id="@+id/radio_multiply"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:onClick="onRadioButtonClicked"
                             android:text="Multiplication" />
 
                         <RadioButton
                             android:id="@+id/radio_divide"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:onClick="onRadioButtonClicked"
                             android:text="Division" />
                     </RadioGroup>
 

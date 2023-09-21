@@ -1,10 +1,12 @@
 package com.example.project3new
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 
@@ -37,27 +39,48 @@ class QuestionFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
-        val difficulty = QuestionFragmentArgs.fromBundle(requireArguments()).difficulty
-        val operation = QuestionFragmentArgs.fromBundle(requireArguments()).operation
-        val numQuestions = QuestionFragmentArgs.fromBundle(requireArguments()).numQuestions
-
         val doneButton = view?.findViewById<Button>(R.id.done_button)
         val num1TV = view?.findViewById<TextView>(R.id.tv_num1)
         val num2TV = view?.findViewById<TextView>(R.id.tv_num2)
         val operationTV = view?.findViewById<TextView>(R.id.tv_operation)
-
-        val randomEasy = (1 until 10).random()
-        val randomMedium = (1 until 25).random()
-        val randomHard = (1 until 50).random()
-
+        val correctAnswersTV = view?.findViewById<TextView>(R.id.tv_correct)
+        val editTextAnswer = view?.findViewById<EditText>(R.id.edit_text_answer)
+        val difficulty = QuestionFragmentArgs.fromBundle(requireArguments()).difficulty
+        val operation = QuestionFragmentArgs.fromBundle(requireArguments()).operation
+        val numQuestions = QuestionFragmentArgs.fromBundle(requireArguments()).numQuestions
+        var correctAnswers = 0
         var questionsLeft = numQuestions
 
+        if (editTextAnswer?.text?.equals("") == true) {
+            operationTV?.text = operation
+            correctAnswersTV?.text = correctAnswers.toString()
+        }
 
         doneButton?.setOnClickListener {
+            Log.i("QuestionFrag", "Done button Pressed")
+            var num1 = 0
+            var num2 = 0
+
             questionsLeft -= 1
+            if (editTextAnswer?.text?.equals(solve(operation,num1, num2)) == true) {
+                correctAnswers += 1
+                correctAnswersTV?.text = correctAnswers.toString()
+            }
 
             if (questionsLeft >= 1) {
-                askQuestion(difficulty)
+                if (difficulty == "easy") {
+                    num1 = (1 until 10).random()
+                    num2 = (1 until 10).random()
+                } else if (difficulty == "medium") {
+                    num1 = (1 until 25).random()
+                    num2 = (1 until 25).random()
+                } else { //hard
+                    num1 = (1 until 50).random()
+                    num2 = (1 until 50).random()
+                }
+                num1TV?.text = num1.toString()
+                num2TV?.text = num2.toString()
+                editTextAnswer?.text = null
             } else {
                 //navigate to correct answers
             }
@@ -66,11 +89,17 @@ class QuestionFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_question, container, false)
     }
 
-    fun askQuestion(difficulty:String) {
-        if (difficulty == "easy") {
-
+    fun solve(operation:String, num1:Int, num2:Int): Int {
+        if (operation.equals("add")) {
+            return num1 + num2
+        } else if (operation.equals("subtract")) {
+            return num1 - num2
+        } else if (operation.equals("multiply")) {
+            return num1 * num2
+        } else {
+            return num1 / num2
+//            TODO rounding?
         }
-
     }
 
     companion object {

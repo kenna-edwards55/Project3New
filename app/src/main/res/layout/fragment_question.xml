@@ -57,6 +57,11 @@
                 android:text="1"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
+<!--            TODO delete-->
+            <TextView
+                android:id= "@+id/tv_correct"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"></TextView>
         </LinearLayout>
 
         <LinearLayout
@@ -69,8 +74,8 @@
                 android:id="@+id/edit_text_answer"
                 android:layout_width="300dp"
                 android:layout_height="match_parent"
+                android:inputType="text"
                 android:hint="Your answer"></EditText>
-
         </LinearLayout>
 
         <LinearLayout
@@ -84,10 +89,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="2dp"
+                android:enabled="true"
                 android:text="DONE"
                 android:textSize="30sp"
                 app:cornerRadius="4dp" />
-
         </LinearLayout>
 
         <ImageView
