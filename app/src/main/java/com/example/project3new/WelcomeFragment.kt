@@ -36,14 +36,6 @@ class WelcomeFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_welcome, container, false)
 
-//        val radioGroupDifficulty = view?.findViewById<RadioGroup>(R.id.radio_group_difficulty)
-//        val radioEasy = view?.findViewById<Button>(R.id.radio_easy)
-//        val radioMedium = view?.findViewById<Button>(R.id.radio_medium)
-//        val radioHard = view?.findViewById<Button>(R.id.radio_hard)
-//        val radioAdd = view?.findViewById<Button>(R.id.radio_add)
-//        val radioSubtract = view?.findViewById<Button>(R.id.radio_subtract)
-//        val radioMultiply = view?.findViewById<Button>(R.id.radio_multiply)
-//        val radioDivide = view?.findViewById<Button>(R.id.radio_divide)
         val buttonMinus = view?.findViewById<Button>(R.id.button_minus)
         val buttonPlus = view?.findViewById<Button>(R.id.button_plus)
         val buttonStart = view?.findViewById<Button>(R.id.button_start)
@@ -56,11 +48,14 @@ class WelcomeFragment : Fragment() {
 
         buttonMinus?.setOnClickListener {
             numQuestions -= 1
+            tvNumQuestions?.text = numQuestions.toString()
         }
 
         buttonPlus?.setOnClickListener {
             numQuestions -= 1
+            tvNumQuestions?.text = numQuestions.toString()
         }
+
 
         return view
     }

@@ -156,9 +156,9 @@
                     android:id="@+id/tv_num_questions"
                     android:layout_width="100dp"
                     android:layout_height="80dp"
-                    android:text="Hi"
+                    android:text="0"
                     android:textAlignment="center"
-                    android:textSize="40dp"></TextView>
+                    android:textSize="40dp" />
 
                 <Button
                     android:id="@+id/button_plus"
