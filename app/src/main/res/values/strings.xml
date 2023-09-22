@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Practice Math</string>
+    <string name="app_name">Practice Arithmetic</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name = "difficulty">Easy</string>
     <string name = "operation">Addition</string>

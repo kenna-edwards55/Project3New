@@ -17,8 +17,8 @@ private var difficulty = ""
 private var operation = ""
 private var numQuestions = 0
 
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+//private const val ARG_PARAM1 = "param1"
+//private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
@@ -27,8 +27,6 @@ private const val ARG_PARAM2 = "param2"
  */
 class WelcomeFragment : Fragment() {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,64 +48,53 @@ class WelcomeFragment : Fragment() {
         val tvNumQuestions = view?.findViewById<TextView>(R.id.tv_num_questions)
 
         buttonStart?.setOnClickListener {
-            Log.d("Welcome Frag", "Start pressed")
+            Log.i("WelcomeFragment.kt", "Start button pressed")
             val action = WelcomeFragmentDirections.actionWelcomeFragmentToQuestionFragment(difficulty, operation, numQuestions)
             view.findNavController().navigate(action)
         }
 
         buttonMinus?.setOnClickListener {
+            Log.i("WelcomeFragment.kt", "Minus questions button pressed")
             numQuestions -= 1
             tvNumQuestions?.text = numQuestions.toString()
         }
 
         buttonPlus?.setOnClickListener {
+            Log.i("WelcomeFragment.kt", "Plus questions button pressed")
             numQuestions += 1
             tvNumQuestions?.text = numQuestions.toString()
         }
 
         radioButtonEasy?.setOnClickListener {
+            Log.i("WelcomeFragment.kt", "Easy difficulty radio button selected")
             difficulty = "easy"
         }
         radioButtonMedium?.setOnClickListener {
+            Log.i("WelcomeFragment.kt", "Medium difficulty radio button selected")
             difficulty = "medium"
         }
         radioButtonHard?.setOnClickListener {
+            Log.i("WelcomeFragment.kt", "Hard difficulty radio button selected")
             difficulty = "hard"
         }
         radioButtonAdd?.setOnClickListener {
+            Log.i("WelcomeFragment.kt", "Addition operation radio button selected")
             operation = "add"
         }
         radioButtonSubtract?.setOnClickListener {
+            Log.i("WelcomeFragment.kt", "Subtraction operation radio button selected")
             operation = "subtract"
         }
         radioButtonMultiply?.setOnClickListener {
+            Log.i("WelcomeFragment.kt", "Multiplication operation radio button selected")
             operation = "multiply"
         }
         radioButtonDivide?.setOnClickListener {
+            Log.i("WelcomeFragment.kt", "Division operation radio button selected")
             operation = "divide"
         }
 
         return view
     }
 
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment WelcomeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            WelcomeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }
