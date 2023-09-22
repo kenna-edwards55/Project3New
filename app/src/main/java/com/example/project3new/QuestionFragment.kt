@@ -46,7 +46,7 @@ class QuestionFragment : Fragment() {
         } else if (operation == "subtract") {
             operationTV?.text = "-"
         } else if (operation == "multiply") {
-            operationTV?.text = "*"
+            operationTV?.text = "X"
         } else {
             operationTV?.text = "/"
         }

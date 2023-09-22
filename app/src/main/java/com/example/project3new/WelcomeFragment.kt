@@ -46,6 +46,7 @@ class WelcomeFragment : Fragment() {
         val radioButtonMultiply = view?.findViewById<RadioButton>(R.id.radio_multiply)
         val radioButtonDivide = view?.findViewById<RadioButton>(R.id.radio_divide)
         val tvNumQuestions = view?.findViewById<TextView>(R.id.tv_num_questions)
+//        numQuestions = 0
 
         buttonStart?.setOnClickListener {
             Log.i("WelcomeFragment.kt", "Start button pressed")

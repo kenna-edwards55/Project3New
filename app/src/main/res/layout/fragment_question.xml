@@ -21,7 +21,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:text="What is..."
+                android:text="@string/what_is"
                 android:textColor="@color/black"
                 android:textSize="50dp" />
         </LinearLayout>
@@ -39,7 +39,7 @@
                 android:layout_margin="10dp"
                 android:text="1"
                 android:textColor="@color/black"
-                android:textSize="20dp" />
+                android:textSize="30dp" />
 <!--            TODO change to the operation they chose-->
             <TextView
                 android:id="@+id/tv_operation"
@@ -48,7 +48,7 @@
                 android:layout_margin="10dp"
                 android:text="X"
                 android:textColor="@color/black"
-                android:textSize="20dp" />
+                android:textSize="30dp" />
             <TextView
                 android:id="@+id/tv_num2"
                 android:layout_width="wrap_content"
@@ -56,7 +56,7 @@
                 android:layout_margin="10dp"
                 android:text="1"
                 android:textColor="@color/black"
-                android:textSize="20dp" />
+                android:textSize="30dp" />
 <!--            TODO delete-->
             <TextView
                 android:id= "@+id/tv_correct"
@@ -73,9 +73,10 @@
             <EditText
                 android:id="@+id/edit_text_answer"
                 android:layout_width="300dp"
-                android:layout_height="match_parent"
+                android:layout_height="60dp"
                 android:inputType="text"
-                android:hint="Your answer"></EditText>
+                android:textSize="40dp"
+                android:hint="@string/your_ans_hint"/>
         </LinearLayout>
 
         <LinearLayout
@@ -86,13 +87,14 @@
 
             <Button
                 android:id="@+id/done_button"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:enabled="true"
                 android:clickable="true"
-                android:text="DONE"
-                android:textSize="30sp"
+                android:text="@string/done_button_str"
+                android:textSize="20sp"
+                android:backgroundTint="@color/gray"
                 app:cornerRadius="4dp" />
         </LinearLayout>
 
