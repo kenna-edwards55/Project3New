@@ -19,7 +19,6 @@ The following **required** functionality is completed:
 * [ ] If desired, they can go back to the beginning of the app and quiz again, by pressing the "Do it again" button
 
 The following **extensions** are implemented:
-
 * androidx.fragment.app.Fragment
 * androidx.navigation.findNavController
 * androidx.appcompat.app.AppCompatActivity
