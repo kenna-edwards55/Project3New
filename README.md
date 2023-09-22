@@ -12,7 +12,6 @@ The following **required** functionality is completed:
 * [ ]     Operation: addition, subtraction, multiplication, and division
 * [ ]     Number of Questions: Greater than or equal to 1
 * [ ] User presses "start" button, and app navigates to the QuestionFragment
-* [ ] 
 * [ ] The user answers the number of questions they chose from the operator and difficulty.
 * [ ] When finished with each question, press done.
 * [ ] Once the amount of questions requested has been answered, the app navigates to the CorrectAnswersFragment
