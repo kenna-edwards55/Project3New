@@ -20,7 +20,9 @@ The following **required** functionality is completed:
 
 The following **extensions** are implemented:
 
-* N/A
+* androidx.fragment.app.Fragment
+* androidx.navigation.findNavController
+* androidx.appcompat.app.AppCompatActivity
 
 ## Video Walkthrough
 
@@ -33,15 +35,20 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 ## Notes
 
 Describe any challenges encountered while building the app.
-* We had problems figuring out what to do to implement PEMDAS. We knew it had to do with some priority logic and a stack/queue. We tried doing an array list that split the code into chunks with priority given to chunks with multiplication, but it was difficult to get it to work 100% of the time. We ended up using the concept of postfix notation to implement the PEMDAS, which allows us to separate the operators and operands into two stacks until we need them, while keeping a postfix output list. We could order the operator stack and then add them in postfix order in the output list. The actual calculation happens in the operand stack but it references the output queue.
+* A major challenge I faced was the plugins.  I did not correctly implement all of the plugins, which led to several hours of debugging the issue.
+* Another challenge was passing arguments between screens.  It was difficult to ensure the nav_graph.xml was correctly implemented.
 
 Logic
-* (Orig Calc= 3+3*5) = Output list: (3, 3, 5, *, +)
-* The output list allows us to iterate through and add the operands to the operand stack in order, but once we hit a operator (which is going to be in postfix notation resulting in PEMDAS), it will pop the most recent operands and do the calculation. Once that happens, it adds the result back into the stack for more postfix calcuations.
+* The user chooses their difficulty level, which defines what operands will be displayed in the questions.
+* "easy" = 1 <= operand < 10
+* "medium" = 1 <= operand < 25
+* "hard" = 1 <= operand < 50
+
+* When the user submits an answer, the solve() function evaluates and returns the correct answer to the math problem.  An if statement in the "done" button evaluates whether the correct answer matches the users input.  If yes, the number of correct answers increases by 1.  For more details, see kDocs within QuestionFragment.kt
 
 ## License
 
-    Copyright [2023] [Timothy Chan, Kenna Edwards]
+    Copyright [2023] [Kenna Edwards]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
