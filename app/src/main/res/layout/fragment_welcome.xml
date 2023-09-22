@@ -172,17 +172,18 @@
 
             </LinearLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
                 android:gravity="center"
+                android:layout_alignParentBottom="true"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/button_start"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="2dp"
+                    android:layout_marginTop="2dp"
                     android:backgroundTint="@color/gray"
                     android:enabled="true"
                     android:text="@string/start_button_str"
@@ -190,7 +191,7 @@
                     android:textSize="30sp"
                     app:cornerRadius="4dp" />
 
-            </LinearLayout>
+            </RelativeLayout>
 
         </LinearLayout>
 

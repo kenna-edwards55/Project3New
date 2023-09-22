@@ -30,7 +30,7 @@ class CorrectAnswersFragment : Fragment() {
         val numCorrect = CorrectAnswersFragmentArgs.fromBundle(requireArguments()).numCorrect
         val outOf = CorrectAnswersFragmentArgs.fromBundle(requireArguments()).numOutOf
 
-        tvScore?.text = "You scored $numCorrect out of $outOf"
+        tvScore?.text = "Your score $numCorrect out of $outOf"
 
         doAgainButton?.setOnClickListener {
             Log.i("CorrectAnswersFragment.kt", "Do again button pressed")

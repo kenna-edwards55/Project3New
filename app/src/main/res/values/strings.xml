@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Practice Arithmetic</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="blank_text_view">blank</string>
     <string name="difficulty_text_view">Select Difficulty:</string>
     <string name="operation_text_view">Select Operation:</string>
