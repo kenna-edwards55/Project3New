@@ -37,6 +37,9 @@ Describe any challenges encountered while building the app.
 * A major challenge I faced was the plugins.  I did not correctly implement all of the plugins, which led to several hours of debugging the issue.
 * Another challenge was passing arguments between screens.  It was difficult to ensure the nav_graph.xml was correctly implemented.
 
+Functionality Note
+* For division, the user's answer is equal to the Integer. AKA if the question is 9/8, the answer is 1.
+
 Logic
 * The user chooses their difficulty level, which defines what operands will be displayed in the questions.
 * "easy" = 1 <= operand < 10
