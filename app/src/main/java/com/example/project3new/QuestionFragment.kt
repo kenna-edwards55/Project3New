@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -38,6 +39,7 @@ class QuestionFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_question, container, false)
 
         val doneButton = view?.findViewById<Button>(R.id.done_button)
         val num1TV = view?.findViewById<TextView>(R.id.tv_num1)
@@ -50,43 +52,63 @@ class QuestionFragment : Fragment() {
         val numQuestions = QuestionFragmentArgs.fromBundle(requireArguments()).numQuestions
         var correctAnswers = 0
         var questionsLeft = numQuestions
+        var num1 = 0
+        var num2 = 0
+
+        if (operation == "add") {
+            operationTV?.text = "+"
+        } else if (operation == "subtract") {
+            operationTV?.text = "-"
+        } else if (operation == "multiply") {
+            operationTV?.text = "*"
+        } else {
+            operationTV?.text = "/"
+        }
+
+        num1 = nums(difficulty)
+        num2 = nums(difficulty)
+        num1TV?.text = num1.toString()
+        num2TV?.text = num2.toString()
+
 
         if (editTextAnswer?.text?.equals("") == true) {
+            Log.d("QuestionFrag","Setting the first one")
             operationTV?.text = operation
             correctAnswersTV?.text = correctAnswers.toString()
         }
 
         doneButton?.setOnClickListener {
             Log.i("QuestionFrag", "Done button Pressed")
-            var num1 = 0
-            var num2 = 0
 
-            questionsLeft -= 1
-            if (editTextAnswer?.text?.equals(solve(operation,num1, num2)) == true) {
+            if (editTextAnswer?.text.toString().toInt() == solve(operation,num1,num2)) {
                 correctAnswers += 1
                 correctAnswersTV?.text = correctAnswers.toString()
             }
+            questionsLeft -= 1
 
             if (questionsLeft >= 1) {
-                if (difficulty == "easy") {
-                    num1 = (1 until 10).random()
-                    num2 = (1 until 10).random()
-                } else if (difficulty == "medium") {
-                    num1 = (1 until 25).random()
-                    num2 = (1 until 25).random()
-                } else { //hard
-                    num1 = (1 until 50).random()
-                    num2 = (1 until 50).random()
-                }
+                num1 = nums(difficulty)
+                num2 = nums(difficulty)
                 num1TV?.text = num1.toString()
                 num2TV?.text = num2.toString()
                 editTextAnswer?.text = null
             } else {
-                //navigate to correct answers
+                val action = QuestionFragmentDirections.actionQuestionFragmentToCorrectAnswersFragment(correctAnswers, numQuestions)
+                view?.findNavController()?.navigate(action)
             }
         }
 
-        return inflater.inflate(R.layout.fragment_question, container, false)
+        return view
+    }
+
+    fun nums(difficulty:String): Int {
+        if (difficulty == "easy") {
+            return (1 until 10).random()
+        } else if (difficulty == "medium") {
+            return (1 until 25).random()
+        } else { //hard
+            return (1 until 50).random()
+        }
     }
 
     fun solve(operation:String, num1:Int, num2:Int): Int {

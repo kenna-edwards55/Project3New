@@ -46,6 +46,12 @@
         tools:layout="@layout/fragment_correct_answers" >
         <argument
             android:name="numCorrect"
-            app:argType="string"/>
+            app:argType="integer"/>
+        <argument
+            android:name="numOutOf"
+            app:argType="integer"/>
+        <action
+            android:id="@+id/action_correctAnswersFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
     </fragment>
 </navigation>

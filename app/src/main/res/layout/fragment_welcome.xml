@@ -34,7 +34,8 @@
                 <LinearLayout
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_margin="4dp">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -44,7 +45,7 @@
                         android:textColor="@color/black"
                         android:textSize="10dp" />
 
-                    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                    <RadioGroup
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
@@ -82,7 +83,7 @@
                         android:textColor="@color/black"
                         android:textSize="10dp" />
 
-                    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                    <RadioGroup
                         android:id="@+id/radio_group_difficulty"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"

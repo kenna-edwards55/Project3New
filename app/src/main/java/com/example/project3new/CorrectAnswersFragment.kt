@@ -1,10 +1,13 @@
 package com.example.project3new
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,7 +37,24 @@ class CorrectAnswersFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_correct_answers, container, false)
+
+        val view = inflater.inflate(R.layout.fragment_correct_answers, container, false)
+        val tvScore = view?.findViewById<TextView>(R.id.tv_score)
+        val doAgainButton = view?.findViewById<Button>(R.id.button_do_again)
+        val numCorrect = CorrectAnswersFragmentArgs.fromBundle(requireArguments()).numCorrect
+        val outOf = CorrectAnswersFragmentArgs.fromBundle(requireArguments()).numOutOf
+
+        tvScore?.text = "You scored $numCorrect out of $outOf"
+
+        doAgainButton?.setOnClickListener {
+            //go back to the beginning
+            //probably need to reset the first screen
+            val action = CorrectAnswersFragmentDirections.actionCorrectAnswersFragmentToWelcomeFragment()
+            view?.findNavController()?.navigate(action)
+        }
+
+
+        return view
     }
 
     companion object {

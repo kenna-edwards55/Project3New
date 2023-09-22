@@ -88,8 +88,9 @@
                 android:id="@+id/done_button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="2dp"
+                android:layout_margin="4dp"
                 android:enabled="true"
+                android:clickable="true"
                 android:text="DONE"
                 android:textSize="30sp"
                 app:cornerRadius="4dp" />
