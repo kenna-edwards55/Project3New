@@ -13,9 +13,9 @@ import androidx.navigation.findNavController
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private var difficulty = ""
-private var operation = ""
-private var numQuestions = 0
+//private var difficulty = ""
+//private var operation = ""
+//private var numQuestions = 0
 
 //private const val ARG_PARAM1 = "param1"
 //private const val ARG_PARAM2 = "param2"
@@ -46,7 +46,10 @@ class WelcomeFragment : Fragment() {
         val radioButtonMultiply = view?.findViewById<RadioButton>(R.id.radio_multiply)
         val radioButtonDivide = view?.findViewById<RadioButton>(R.id.radio_divide)
         val tvNumQuestions = view?.findViewById<TextView>(R.id.tv_num_questions)
-//        numQuestions = 0
+
+        var difficulty = ""
+        var operation = ""
+        var numQuestions = 0
 
         buttonStart?.setOnClickListener {
             Log.i("WelcomeFragment.kt", "Start button pressed")
