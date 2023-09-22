@@ -5,11 +5,6 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/welcomeFragment">
 
-<!--    <activity-->
-<!--        android:id="@+id/mainActivity"-->
-<!--        android:name="com.example.project3new.MainActivity"-->
-<!--        android:label="activity_main"-->
-<!--        tools:layout="@layout/activity_main"></activity>-->
     <fragment
         android:id="@+id/welcomeFragment"
         android:name="com.example.project3new.WelcomeFragment"

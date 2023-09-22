@@ -11,20 +11,39 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 
-/**
- * A simple [Fragment] subclass.
- * Use the [WelcomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class WelcomeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
+    /**
+     * Practice Arithmetic app WelcomeFragment.
+     * This is the first view the user will see.
+     *
+     * @author Kenna Edwards
+     *
+     */
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        /**
+         * Implements onClickListeners for all buttons on the UI screen.
+         * Navigates to the QuestionFragment
+         *
+         * @property [inflater]: LayoutInflater- Instantiates a layout XML file into its corresponding View objects.
+         * @property [container]: ViewGroup?- contains the elements of the view
+         * @property [savedInstanceState] - saved state of the variables
+         * @return [view]: inflates the view
+         */
+
+        /**
+         * [view]: inflates the layout for this fragment
+         */
 
         val view = inflater.inflate(R.layout.fragment_welcome, container, false)
+
+        /**
+         * Initialization of all Button, RadioButton, and TextView objects
+         */
 
         val buttonMinus = view?.findViewById<Button>(R.id.button_minus)
         val buttonPlus = view?.findViewById<Button>(R.id.button_plus)
@@ -38,53 +57,119 @@ class WelcomeFragment : Fragment() {
         val radioButtonDivide = view?.findViewById<RadioButton>(R.id.radio_divide)
         val tvNumQuestions = view?.findViewById<TextView>(R.id.tv_num_questions)
 
-        var difficulty = ""
-        var operation = ""
-        var numQuestions = 0
+        /**
+         * Variables that will hold information to be passed to the QuestionFragment
+         * [difficulty] - a String that will be "easy", "medium", or "hard". The default is "easy".
+         * [operation]- a String that will be "add", "subtract", "multiply", or "divide". The default is "add".
+         * [numQuestions]- an Int that is >= 1. The default is 1.
+         */
+        var difficulty = "easy"
+        var operation = "add"
+        var numQuestions = 1
 
         buttonStart?.setOnClickListener {
+            /**
+             * When buttonStart is clicked, the NavController navigates to the QuestionFragment and sends the arguments
+             * [difficulty], [operation], and [numQuestions]
+             */
+
             Log.i("WelcomeFragment.kt", "Start button pressed")
             val action = WelcomeFragmentDirections.actionWelcomeFragmentToQuestionFragment(difficulty, operation, numQuestions)
             view.findNavController().navigate(action)
         }
 
         buttonMinus?.setOnClickListener {
+            /**
+             * When buttonMinus is clicked, [numQuestions] decreases
+             * [numQuestions] must be >= 1
+             * The [tvNumQuestions] is updated to the appropriate number
+             */
+
             Log.i("WelcomeFragment.kt", "Minus questions button pressed")
-            numQuestions -= 1
+            if (numQuestions-1 >=1) {
+                numQuestions -= 1
+            }
             tvNumQuestions?.text = numQuestions.toString()
         }
 
         buttonPlus?.setOnClickListener {
+            /**
+             * When buttonPlus is clicked, [numQuestions] increases
+             * The [tvNumQuestions] is updated to the appropriate number
+             */
+
             Log.i("WelcomeFragment.kt", "Plus questions button pressed")
             numQuestions += 1
             tvNumQuestions?.text = numQuestions.toString()
         }
 
         radioButtonEasy?.setOnClickListener {
+            /**
+             * When radioButtonEasy is pressed, [difficulty] is assigned the String value "easy"
+             * The radio_group_difficulty in WelcomeFragment.kt responds appropriately to
+             * fill in the circle of the appropriate radio button.
+             */
+
             Log.i("WelcomeFragment.kt", "Easy difficulty radio button selected")
             difficulty = "easy"
         }
         radioButtonMedium?.setOnClickListener {
+            /**
+             * When radioButtonMedium is pressed, [difficulty] is assigned the String value "medium"
+             * The radio_group_difficulty in WelcomeFragment.kt responds appropriately to
+             * fill in the circle of the appropriate radio button.
+             */
+
             Log.i("WelcomeFragment.kt", "Medium difficulty radio button selected")
             difficulty = "medium"
         }
         radioButtonHard?.setOnClickListener {
+            /**
+             * When radioButtonHard is pressed, [difficulty] is assigned the String value "hard"
+             * The radio_group_difficulty in WelcomeFragment.kt responds appropriately to
+             * fill in the circle of the appropriate radio button.
+             */
+
             Log.i("WelcomeFragment.kt", "Hard difficulty radio button selected")
             difficulty = "hard"
         }
         radioButtonAdd?.setOnClickListener {
+            /**
+             * When radioButtonAdd is pressed, [operation] is assigned the String value "add"
+             * The radio_group_operation in WelcomeFragment.kt responds appropriately to
+             * fill in the circle of the appropriate radio button.
+             */
+
             Log.i("WelcomeFragment.kt", "Addition operation radio button selected")
             operation = "add"
         }
         radioButtonSubtract?.setOnClickListener {
+            /**
+             * When radioButtonSubtract is pressed, [operation] is assigned the String value "subtract"
+             * The radio_group_operation in WelcomeFragment.kt responds appropriately to
+             * fill in the circle of the appropriate radio button.
+             */
+
             Log.i("WelcomeFragment.kt", "Subtraction operation radio button selected")
             operation = "subtract"
         }
         radioButtonMultiply?.setOnClickListener {
+            /**
+             * When radioButtonMultiply is pressed, [operation] is assigned the String value "multiply"
+             * The radio_group_operation in WelcomeFragment.kt responds appropriately to
+             * fill in the circle of the appropriate radio button.
+             */
+
             Log.i("WelcomeFragment.kt", "Multiplication operation radio button selected")
             operation = "multiply"
         }
         radioButtonDivide?.setOnClickListener {
+            /**
+             * When radioButtonDivide is pressed, [operation] is assigned the String value "divide"
+             * The radio_group_operation in WelcomeFragment.kt responds appropriately to
+             * fill in the circle of the appropriate radio button.
+             */
+
             Log.i("WelcomeFragment.kt", "Division operation radio button selected")
             operation = "divide"
         }
