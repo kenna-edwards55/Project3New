@@ -62,21 +62,21 @@ class WelcomeFragment : Fragment() {
         /**
          * Variables that will hold information to be passed to the QuestionFragment
          * [difficulty] - a String that will be "easy", "medium", or "hard". The default is "easy".
-         * [operation]- a String that will be "add", "subtract", "multiply", or "divide". The default is "add".
          * [numQuestions]- an Int that is >= 1. The default is 1.
          */
         var difficulty = "easy"
-        var operation = "addition"
         var numQuestions = 1
 
         /**
          * Initialization of variables [numCorrect], and [outOf] receiving data passed from QuestionFragment.kt
          * [numCorrect] - an Int that is >= 0
          * [outOf]- an Int that is >= 1
+         * [operation]- a String that will be "add", "subtract", "multiply", or "divide". The default is "add".
          */
 
         val numCorrect = WelcomeFragmentArgs.fromBundle(requireArguments()).numCorrect
         val outOf = WelcomeFragmentArgs.fromBundle(requireArguments()).numOutOf
+        var operation = WelcomeFragmentArgs.fromBundle(requireArguments()).operationWelcome
 
         /**
          * [numCorrect]'s default value in nav_graph.xml is -1.

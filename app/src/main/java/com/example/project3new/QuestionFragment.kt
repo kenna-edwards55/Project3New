@@ -107,8 +107,8 @@ class QuestionFragment : Fragment() {
          * [mediaPlayerCorrect]: a MediaPlayer- plays the correct.mp3 file in /res/raw
          * [mediaPlayerWrong]: a MediaPlayer- plays the wrong.mp3 file in /res/raw
          */
-        var mediaPlayerCorrect= MediaPlayer.create(activity, R.raw.correct)
-        var mediaPlayerWrong = MediaPlayer.create(activity, R.raw.wrong)
+        val mediaPlayerCorrect= MediaPlayer.create(context, R.raw.correct)
+        val mediaPlayerWrong = MediaPlayer.create(context, R.raw.wrong)
 
         /**
          * Defining the Toasts
@@ -155,7 +155,7 @@ class QuestionFragment : Fragment() {
                 num2TV?.text = num2.toString()
                 editTextAnswer?.text = null
             } else {
-                val action = QuestionFragmentDirections.actionQuestionFragmentToWelcomeFragment().setNumCorrect(correctAnswers).setNumOutOf(numQuestions)
+                val action = QuestionFragmentDirections.actionQuestionFragmentToWelcomeFragment().setNumCorrect(correctAnswers).setNumOutOf(numQuestions).setOperationWelcome(operation)
                 view?.findNavController()?.navigate(action)
             }
         }

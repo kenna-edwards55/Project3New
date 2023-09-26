@@ -21,6 +21,10 @@
             android:name="numOutOf"
             android:defaultValue="-1"
             app:argType="integer" />
+        <argument
+            android:name="operationWelcome"
+            android:defaultValue="addition"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/questionFragment"

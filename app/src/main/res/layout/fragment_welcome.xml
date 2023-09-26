@@ -106,26 +106,26 @@
 
                         <RadioButton
                             android:id="@+id/radio_add"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="120dp"
+                            android:layout_height="40dp"
                             android:text="@string/addition_radio_str" />
 
                         <RadioButton
                             android:id="@+id/radio_subtract"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="40dp"
                             android:text="@string/subtraction_radio_str" />
 
                         <RadioButton
                             android:id="@+id/radio_multiply"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="40dp"
                             android:text="@string/multiplication_radio_str" />
 
                         <RadioButton
                             android:id="@+id/radio_divide"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="40dp"
                             android:text="@string/division_radio_str" />
                     </RadioGroup>
 
@@ -145,7 +145,7 @@
                     android:layout_height="match_parent"
                     android:text="@string/num_questions_text_view"
                     android:textSize="30dp"
-                    android:textColor="@color/gray"></TextView>
+                    android:textColor="@color/gray"/>
             </LinearLayout>
 
             <LinearLayout
@@ -165,7 +165,6 @@
                     android:textSize="40sp"
                     app:cornerRadius="4dp" />
 
-                <!--TODO text is the value of the var-->
                 <TextView
                     android:id="@+id/tv_num_questions"
                     android:layout_width="100dp"
@@ -191,6 +190,7 @@
 
         <Button
             android:id="@+id/button_start"
+            android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginTop="2dp"
@@ -202,6 +202,5 @@
             app:cornerRadius="4dp" />
 
     </LinearLayout>
-
 
 </RelativeLayout>
