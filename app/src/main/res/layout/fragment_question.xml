@@ -33,7 +33,6 @@
             android:gravity="center"
             android:orientation="horizontal"
             android:layout_marginBottom="100dp">
-<!--    TODO change to string resource of text-->
 
             <TextView
                 android:id="@+id/tv_num1"
@@ -55,11 +54,7 @@
                 android:layout_marginLeft="100dp"
                 android:textColor="@color/black"
                 android:textSize="50dp" />
-<!--            TODO delete-->
-<!--            <TextView-->
-<!--                android:id= "@+id/tv_correct"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="match_parent"></TextView>-->
+
         </LinearLayout>
 
         <LinearLayout

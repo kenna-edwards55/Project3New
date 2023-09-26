@@ -1,5 +1,6 @@
 package com.example.project3new
 
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -56,6 +57,7 @@ class WelcomeFragment : Fragment() {
         val radioButtonMultiply = view?.findViewById<RadioButton>(R.id.radio_multiply)
         val radioButtonDivide = view?.findViewById<RadioButton>(R.id.radio_divide)
         val tvNumQuestions = view?.findViewById<TextView>(R.id.tv_num_questions)
+        val correctAnswersTVWelcome = view?.findViewById<TextView>(R.id.correct_answers_tv)
 
         /**
          * Variables that will hold information to be passed to the QuestionFragment
@@ -64,8 +66,22 @@ class WelcomeFragment : Fragment() {
          * [numQuestions]- an Int that is >= 1. The default is 1.
          */
         var difficulty = "easy"
-        var operation = "add"
+        var operation = "addition"
         var numQuestions = 1
+
+        val numCorrect = WelcomeFragmentArgs.fromBundle(requireArguments()).numCorrect
+        val outOf = WelcomeFragmentArgs.fromBundle(requireArguments()).numOutOf
+
+        if (numCorrect != -1) {
+            if (numCorrect.toDouble()/outOf.toDouble() >= 0.8) {
+                correctAnswersTVWelcome?.setTextColor(Color.parseColor("#FF000000"))
+                correctAnswersTVWelcome?.text = "You got $numCorrect out of $outOf correct in $operation. Good Work!"
+            } else {
+                correctAnswersTVWelcome?.setTextColor(Color.parseColor("#FC0303"))
+                correctAnswersTVWelcome?.text = "You got $numCorrect out of $outOf correct in $operation. You need to practice more!"
+            }
+
+        }
 
         buttonStart?.setOnClickListener {
             /**
@@ -141,7 +157,7 @@ class WelcomeFragment : Fragment() {
              */
 
             Log.i("WelcomeFragment.kt", "Addition operation radio button selected")
-            operation = "add"
+            operation = "addition"
         }
         radioButtonSubtract?.setOnClickListener {
             /**
@@ -151,7 +167,7 @@ class WelcomeFragment : Fragment() {
              */
 
             Log.i("WelcomeFragment.kt", "Subtraction operation radio button selected")
-            operation = "subtract"
+            operation = "subtraction"
         }
         radioButtonMultiply?.setOnClickListener {
             /**
@@ -161,7 +177,7 @@ class WelcomeFragment : Fragment() {
              */
 
             Log.i("WelcomeFragment.kt", "Multiplication operation radio button selected")
-            operation = "multiply"
+            operation = "multiplication"
         }
         radioButtonDivide?.setOnClickListener {
             /**
@@ -171,7 +187,7 @@ class WelcomeFragment : Fragment() {
              */
 
             Log.i("WelcomeFragment.kt", "Division operation radio button selected")
-            operation = "divide"
+            operation = "division"
         }
 
         return view

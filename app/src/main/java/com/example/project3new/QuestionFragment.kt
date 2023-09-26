@@ -1,5 +1,6 @@
 package com.example.project3new
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 
@@ -19,6 +21,9 @@ class QuestionFragment : Fragment() {
      * @author Kenna Edwards
      *
      */
+
+//    private val mediaPlayerCorrect: MediaPlayer? = MediaPlayer.create(activity, R.raw.correct)
+//    private var mediaPlayerWrong: MediaPlayer? = MediaPlayer.create(activity, R.raw.wrong)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -76,16 +81,18 @@ class QuestionFragment : Fragment() {
         var num1 = 0
         var num2 = 0
 
+
+
         /**
          * Evaluates the value in the [operation] String, whose value was passed from WelcomeFragment.kt
          * Assigns the value to the operationTV in the UI.
          */
 
-        if (operation == "add") {
+        if (operation == "addition") {
             operationTV?.text = "+"
-        } else if (operation == "subtract") {
+        } else if (operation == "subtraction") {
             operationTV?.text = "-"
-        } else if (operation == "multiply") {
+        } else if (operation == "multiplication") {
             operationTV?.text = "X"
         } else {
             operationTV?.text = "/"
@@ -99,6 +106,9 @@ class QuestionFragment : Fragment() {
         num2 = nums(difficulty)
         num1TV?.text = num1.toString()
         num2TV?.text = num2.toString()
+
+        var mediaPlayerCorrect= MediaPlayer.create(activity, R.raw.correct)
+        var mediaPlayerWrong = MediaPlayer.create(activity, R.raw.wrong)
 
         doneButton?.setOnClickListener {
             /**
@@ -116,8 +126,19 @@ class QuestionFragment : Fragment() {
              */
             Log.i("QuestionFragment.kt", "Done button Pressed")
 
+
             if (editTextAnswer?.text.toString().toInt() == solve(operation,num1,num2)) {
                 correctAnswers += 1
+
+                val toast = Toast.makeText(activity, "Correct. Good Work!", Toast.LENGTH_SHORT)
+                toast.show()
+
+                mediaPlayerCorrect?.start()
+            } else {
+                val toast = Toast.makeText(activity, "Wrong", Toast.LENGTH_SHORT)
+                toast.show()
+
+                mediaPlayerWrong?.start()
             }
             questionsLeft -= 1
 
@@ -128,7 +149,7 @@ class QuestionFragment : Fragment() {
                 num2TV?.text = num2.toString()
                 editTextAnswer?.text = null
             } else {
-                val action = QuestionFragmentDirections.actionQuestionFragmentToCorrectAnswersFragment(correctAnswers, numQuestions)
+                val action = QuestionFragmentDirections.actionQuestionFragmentToWelcomeFragment().setNumCorrect(correctAnswers).setNumOutOf(numQuestions)
                 view?.findNavController()?.navigate(action)
             }
         }
@@ -153,6 +174,7 @@ class QuestionFragment : Fragment() {
         }
     }
 
+
     fun solve(operation:String, num1:Int, num2:Int): Int {
         /**
          * Solves and returns the mathematical problem that is posed to the user.
@@ -163,11 +185,11 @@ class QuestionFragment : Fragment() {
          *
          * @return the correct answer to the mathematical problem
          */
-        if (operation.equals("add")) {
+        if (operation.equals("addition")) {
             return num1 + num2
-        } else if (operation.equals("subtract")) {
+        } else if (operation.equals("subtraction")) {
             return num1 - num2
-        } else if (operation.equals("multiply")) {
+        } else if (operation.equals("multiplication")) {
             return num1 * num2
         } else {
             return num1 / num2
