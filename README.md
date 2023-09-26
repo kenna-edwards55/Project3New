@@ -1,6 +1,6 @@
 # Project 4 Practice Arithmetic
 
-Description of the project ...
+Description of the project:
 * Quiz application that tests user's knowledge of math problems.
 
 ## Functionality 
