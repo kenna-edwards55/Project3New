@@ -35,8 +35,10 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 ## Notes
 
 Describe any challenges encountered while building the app.
-* A major challenge I faced was the plugins.  I did not correctly implement all of the plugins, which led to several hours of debugging the issue.
-* Another challenge was passing arguments between screens.  It was difficult to ensure the nav_graph.xml was correctly implemented.
+* A challenge I faced was ensuring the UI had the correct spacing with the addition of another textView in WelcomeFragment.kt
+* Another challenge was passing arguments from QuestionFragment.kt back to WelcomeFragment.kt.
+*     I learned that I could add a defaultValue to the numCorrect and outOf variables, to prevent the app from crashing on first open.
+*     I also learned that to pass arguments when a defaultValue is implemented, you must you setter functions, rather than simply sending the values as an argument.
 
 Functionality Note
 * For division, the user's answer is equal to the Integer. AKA if the question is 9/8, the answer is 1.
