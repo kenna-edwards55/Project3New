@@ -69,8 +69,24 @@ class WelcomeFragment : Fragment() {
         var operation = "addition"
         var numQuestions = 1
 
+        /**
+         * Initialization of variables [numCorrect], and [outOf] receiving data passed from QuestionFragment.kt
+         * [numCorrect] - an Int that is >= 0
+         * [outOf]- an Int that is >= 1
+         */
+
         val numCorrect = WelcomeFragmentArgs.fromBundle(requireArguments()).numCorrect
         val outOf = WelcomeFragmentArgs.fromBundle(requireArguments()).numOutOf
+
+        /**
+         * [numCorrect]'s default value in nav_graph.xml is -1.
+         * IF this is still [numCorrect]'s value, we know this is the first visit to the WelcomeFragment.kt.
+         * No text should be displayed.
+         *
+         * ELSE
+         *  IF the user scored >= 80%, the text is black and textView will congratulate them.
+         *  ELSE the textColor is changed to red and textView says user needs more practice.
+         */
 
         if (numCorrect != -1) {
             if (numCorrect.toDouble()/outOf.toDouble() >= 0.8) {
@@ -80,7 +96,6 @@ class WelcomeFragment : Fragment() {
                 correctAnswersTVWelcome?.setTextColor(Color.parseColor("#FC0303"))
                 correctAnswersTVWelcome?.text = "You got $numCorrect out of $outOf correct in $operation. You need to practice more!"
             }
-
         }
 
         buttonStart?.setOnClickListener {

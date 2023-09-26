@@ -22,9 +22,6 @@ class QuestionFragment : Fragment() {
      *
      */
 
-//    private val mediaPlayerCorrect: MediaPlayer? = MediaPlayer.create(activity, R.raw.correct)
-//    private var mediaPlayerWrong: MediaPlayer? = MediaPlayer.create(activity, R.raw.wrong)
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -81,8 +78,6 @@ class QuestionFragment : Fragment() {
         var num1 = 0
         var num2 = 0
 
-
-
         /**
          * Evaluates the value in the [operation] String, whose value was passed from WelcomeFragment.kt
          * Assigns the value to the operationTV in the UI.
@@ -107,13 +102,27 @@ class QuestionFragment : Fragment() {
         num1TV?.text = num1.toString()
         num2TV?.text = num2.toString()
 
+        /**
+         * Defining the MediaPlayers to play sounds for when a user gets an answer correct/wrong
+         * [mediaPlayerCorrect]: a MediaPlayer- plays the correct.mp3 file in /res/raw
+         * [mediaPlayerWrong]: a MediaPlayer- plays the wrong.mp3 file in /res/raw
+         */
         var mediaPlayerCorrect= MediaPlayer.create(activity, R.raw.correct)
         var mediaPlayerWrong = MediaPlayer.create(activity, R.raw.wrong)
+
+        /**
+         * Defining the Toasts
+         * [toastCorrect] shows when the user's answer was correct
+         * [toastWrong] shows when the user's answer was wrong
+         */
+        val toastCorrect = Toast.makeText(activity, "Correct. Good Work!", Toast.LENGTH_SHORT)
+        val toastWrong = Toast.makeText(activity, "Wrong", Toast.LENGTH_SHORT)
 
         doneButton?.setOnClickListener {
             /**
              * When doneButton is clicked, it is first evaluated whether the user's input matches the correct answer to the problem.
-             * If the answer is correct, [correctAnswers] increments by 1
+             * If the answer is correct, [correctAnswers] increments by 1, a Toast shows that the user's answer was correct, and a ding sound plays
+             * If the answer is wrong, a Toast shows that the user's answer was wrong, and a falling sound plays
              *
              * [questionsLeft] is decremented by 1.
              *
@@ -126,18 +135,15 @@ class QuestionFragment : Fragment() {
              */
             Log.i("QuestionFragment.kt", "Done button Pressed")
 
-
             if (editTextAnswer?.text.toString().toInt() == solve(operation,num1,num2)) {
+                Log.i("QuestionFragment.kt", "Correct answer")
                 correctAnswers += 1
 
-                val toast = Toast.makeText(activity, "Correct. Good Work!", Toast.LENGTH_SHORT)
-                toast.show()
-
+                toastCorrect.show()
                 mediaPlayerCorrect?.start()
             } else {
-                val toast = Toast.makeText(activity, "Wrong", Toast.LENGTH_SHORT)
-                toast.show()
-
+                Log.i("QuestionFragment.kt", "Incorrect answer")
+                toastWrong.show()
                 mediaPlayerWrong?.start()
             }
             questionsLeft -= 1
