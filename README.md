@@ -1,4 +1,4 @@
-# Project 3 Practice Arithmetic
+# Project 4 Practice Arithmetic
 
 Description of the project ...
 * Quiz application that tests user's knowledge of math problems.
@@ -14,9 +14,10 @@ The following **required** functionality is completed:
 * [ ] User presses "start" button, and app navigates to the QuestionFragment
 * [ ] The user answers the number of questions they chose from the operator and difficulty.
 * [ ] When finished with each question, press done.
-* [ ] Once the amount of questions requested has been answered, the app navigates to the CorrectAnswersFragment
+* [ ] Once the amount of questions requested has been answered, the app navigates back to the WelcomeFragment
 * [ ] The user sees how many questions out of the total they got correct.
-* [ ] If desired, they can go back to the beginning of the app and quiz again, by pressing the "Do it again" button
+* [ ] If user's score is >= 80%, user is congratulated. Otherwise, the text is red and they are told to practice more.
+* [ ] If desired, they can do another round of practice.
 
 The following **extensions** are implemented:
 * androidx.fragment.app.Fragment
@@ -47,6 +48,11 @@ Logic
 * "hard" = 1 <= operand < 50
 
 * When the user submits an answer, the solve() function evaluates and returns the correct answer to the math problem.  An if statement in the "done" button evaluates whether the correct answer matches the users input.  If yes, the number of correct answers increases by 1.  For more details, see kDocs within QuestionFragment.kt
+
+Sound Credits 
+* Both sounds are located in /res/raw folder
+* correct.mp3 <https://pixabay.com/sound-effects/interface-124464/>
+* wrong.mp3 <https://pixabay.com/sound-effects/negative-beeps-6008/>
 
 ## License
 
